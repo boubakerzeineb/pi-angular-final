@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Event On</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900,300italic,400italic,600italic,700italic'
+          rel='stylesheet' type='text/css'>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="apple-touch-icon" href="apple-touch-icon-precomposed.png">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" type="text/css" href="css/jquery.datetimepicker.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.datetimepicker.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    <script type="text/javascript">var switchTo5x = true;</script>
+    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">stLight.options({
+        publisher: "ur-b4964695-8b2f-20dd-2ced-c9f6141de24c",
+        doNotHash: false,
+        doNotCopy: false,
+        hashAddressBar: false
+    });</script>
+</head>
+<body>
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<!-- Header -->
+
+
+<!-- Events -->
+<section class="events newsection">
+
+    <!-- Container -->
+    <div class="container">
+
+        <center>
+            <!-- eventform-con -->
+            <div class=" eventform-con clearfix">
+                <form>
+                    <div class="form-input search-location">
+                        <input type="text" value="" class="" ng-model="searchKeyword" placeholder="Select Location">
+                        <i class="icon icon-s fa fa-search"></i>
+                        <button class="icon fa fa-globe"></button>
+                    </div>
+
+                    <div class="form-input">
+                        <input placeholder="yyyy/mm/dd" class="date_timepicker_start ng-valid ng-dirty"
+                               ng-model="searchKeyword1">
+                        <button type="button" value="open" class="open icon fa fa-calendar"></button>
+                    </div>
+                    <div class="form-input">
+                        <div class="styled-select">
+                            <select class="ng-valid ng-dirty" ng-model="searchKeyword2">
+                                <option value="">All</option>
+                                <option value="aaa">aaa</option>
+                                <option value="events">events</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-input">
+                        <a class="btn btn-success btn-lg"  data-target="{{ '#exampleNiftySuperScaled92'}}" data-toggle="modal" href="">ADD</a>
+                    </div>
+                </form>
+                <!-- Event-Filter-Memu -->
+            </div>
+        </center>
+
+
+
+        <!-- Item Grid & Item List -->
+        <div class="grid-list event-container clearfix checkcolumn">
+            <div class="row">
+                <!-- Event -->
+                <div class="event-border col-md-3"
+                     ng-repeat="evess in eves | filter: searchKeyword | filter: searchKeyword1 | filter: searchKeyword2">
+                        <div class="event clearfix">
+
+                            <a data-target="{{ '#exampleNiftySuperScaled11_' + evess.idEvent}}" ng-click="selectEvent(evess,$index)" data-toggle="modal" href="">
+                            <div class="eventsimg">
+                                <img src="UPLOAD/{{evess.image}}" alt="">
+                            </div>
+                            <div class="event-content">
+                                <h3 class="title">{{evess.name}}</h3>
+                                <ul class="meta">
+                                    <li class="date"><i class="icon fa fa-calendar"></i> {{evess.eventStartingDate}}</li>
+                                    <li><a href="#"><i class="icon fa fa-home"></i> {{evess.cityAdress}}</a></li>
+                                    <li><a><i class="icon fa fa-map-marker"></i>{{evess.countryAdress}}</a></li>
+                                </ul>
+                                <p> {{eve.description}} </p>
+                            </div>
+                            </a>
+                            <div class="links clearfix">
+                                <ul>
+                                    <li><a href="#"><i class="icon fa fa-heart"></i>26</a></li>
+                                    <li><a href="#"><i class="icon fa fa-comment"></i>33</a></li>
+                                    <li ng-click="selectEvent(evess,$index)"  style="cursor:hand"><a  data-target="{{ '#exampleNiftySuperScaled92'}}"  data-toggle="modal" href=""><i class="icon fa fa-upload"></i>33</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div ng-repeat="eve in eves">
+    <div class="modal fade modal-3d-flip-vertical in" id="{{ 'exampleNiftySuperScaled11_' + eve.idEvent}}"
+         aria-hidden="true" aria-labelledby="exampleModalTitle" role="dialog" tabindex="-1">
+        <div class="modal-dialog" style="width: 90%;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title">Event Info</h4>
+                </div>
+
+
+                <section class="events text-left newsection">
+                    <div class="container">
+                        <div class="row">
+                            <!-- col-md-9 -->
+                            <div class="col-md-9 col-sm-9">
+                                <!--Event Detail  -->
+                                <section class="event-detail newsection">
+                                    <h2 class="main-title "><a href="#">{{eve.name}}</a></h2>
+                                    <!-- meta -->
+                                    <ul class="meta clearfix">
+                                        <li class="date"><i class="icon fa fa-calendar"></i> {{eve.eventStartingDate}}
+                                        </li>
+                                        <li><a href="#"><i class="icon fa fa-home"></i> {{eve.countryAdress}}</a></li>
+                                        <li><a href="#"><i class="icon fa fa-map-marker"></i>{{eve.cityAdress}}</a></li>
+                                    </ul>
+                                    <!-- event-detail-img -->
+                                    <div class="event-detail-img">
+                                        <img src="UPLOAD/{{eve.image}}" alt="">
+                                    </div>
+
+                                    <h3 class="title">Whats About</h3>
+
+                                    <p>{{eve.description}} </p>
+
+                                    <!-- Social Icon -->
+                                    <div class="social-icon">
+                                        <a href="{{eve.facebookEventLink}}" class="facebook facebook-pagle">FACEBOOK
+                                            PAGE</a>
+                                        <a href="#" class="facebook fa fa-facebook"></a>
+                                        <a href="#" class="twitter fa fa-twitter"></a>
+                                        <a href="#" class=" googleplus fa fa-google-plus"></a>
+                                        <a href="#" class="vimeo fa fa-vimeo-square"></a>
+                                        <a href="#" class="linkedin fa fa-linkedin"></a>
+                                    </div>
+                                </section>
+
+                                <!-- speakers-tabs -->
+
+                                <!-- Speaker Event -->
+
+                                <!--Ricket Resgister  -->
+                                <center>
+                                    <section class="ticket-resgister">
+                                        <h2 class="title">Get Tickets and Register Now</h2>
+                                        <div class="row">
+                                            <div class="col-md-4 col-sm-4">
+                                                <div class="ticket clearfix">
+                                                    <h3 class="title">one day tıcket</h3>
+                                                    <div class="ticket-value"><span>$ {{eve.price}}</span></div>
+                                                    <ul>
+                                                        <li>Full-access to all sessions</li>
+                                                        <li>Free wifi at the conference</li>
+                                                        <li>Conference plus lunch coffee/snacks</li>
+                                                    </ul>
+                                                    <a href="#" class="btn btn-pri"><i
+                                                            class="button-icon fa fa-arrow-circle-o-down"></i>Regıster</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <a href="#" data-dismiss="modal" class="btn btn-pri btn-lg">seating is limited ‒
+                                            register now</a>
+                                    </section>
+                                </center>
+                            </div>
+                            <!-- Col-md-3 -->
+                            <div class="col-md-3 col-sm-3">
+                                <aside id="aside" class="aside-bar-style-two clearfix">
+
+                                    <div class="widget border-remove">
+                                        <div id="contact-map" class="map">
+
+                                            <img src="https://maps.googleapis.com/maps/api/staticmap?center={{eve.cityAdress}}&zoom=10&size=254x242&maptype=roadmap&key=AIzaSyDeah9xbZkYTMb0lUazwWJOj73Yc5-KnHc&markers=color:blue%7Clabel:S%7C{{eve.laltitude}},{{eve.longitude}}">
+
+                                        </div>
+
+                                        <br><br><br>
+                                        <a href=""  data-target="{{ '#exampleNiftySuperScaled94'}}" data-toggle="modal" class="btn btn-black btn-full"><i class="icon fa fa-heart"> </i>Add
+                                            Satisfaction</a>
+                                        <a href="#" class="btn btn-Gradient-pri btn-full"> buy tıcket</a>
+                                    </div>
+
+
+                                    <div class="widget" ng-repeat="sat in sats">
+                                        <h3 class="title">{{sat.creationDate}}aa</h3>
+                                        <p>{{sat.descreptiveText}}</p>
+
+                                        <ul class="social-icon">
+                                            <li class="email"><a href="#"><i class=" icon fa fa-user"></i>
+                                                <div class="content">{{sat.messageInfo}}</div>
+                                            </a>
+                                            </li>
+                                            <li class="facebook"><a href="#"><i class="icon fa fa-facebook"></i>
+                                                <div class="content">{{sat.status}}</div>
+                                            </a>
+                                        </ul>
+                                    </div>
+
+                                    <div class="widget">
+                                        <h3 class="title">Need a Event Manager</h3>
+                                        <p>Aliquam id metus purus. Etiam turpis eros, lobortis non libero vel, pharetra
+                                            iaculis augue. [...] </p>
+                                        <ul class="widget-list">
+                                            <li><span class="blod">phone:</span> +90 555 55 55</li>
+                                            <li><span class="blod">Email:<a href="#"> info@example.com</a></li>
+                                        </ul>
+                                    </div>
+
+                                </aside>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btn-pure margin-0" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade modal-3d-flip-vertical in" id="{{ 'exampleNiftySuperScaled92'}}"
+     aria-hidden="true" aria-labelledby="exampleModalTitle" role="dialog" tabindex="-1">
+    <div class="modal-dialog" style="width: 90%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title">Event Info</h4>
+            </div>
+
+            <section class="events text-left newsection">
+
+
+                <center><br>
+                    <div class="input-group" style="width: 50%;">
+                        <span class="input-group-addon" id="basic-addon1">ID</span>
+                        <input type="text" ng-model="event.idEvent" class="form-control" placeholder="ID Event" aria-describedby="basic-addon1">
+                    </div><br>
+                    <div class="input-group" style="width: 50%;">
+                        <span class="input-group-addon" id="basic-addon1">name</span>
+                        <input type="text" ng-model="event.name" class="form-control" placeholder="name" aria-describedby="basic-addon1">
+                    </div><br>
+                    <div class="input-group" style="width: 50%;">
+                        <span class="input-group-addon" id="basic-addon1">description</span>
+                        <input type="text" ng-model="event.description" class="form-control" placeholder="description" aria-describedby="basic-addon1">
+                    </div><br>
+                    <div class="input-group" style="width: 50%;">
+                        <span class="input-group-addon" id="basic-addon1">longitude</span>
+                        <input type="text" class="form-control" ng-model="event.longitude" placeholder="longitude" aria-describedby="basic-addon1">
+                    </div><br>
+                    <div class="input-group" style="width: 50%;">
+                        <span class="input-group-addon" id="basic-addon1">laltitude</span>
+                        <input type="text" class="form-control" placeholder="laltitude" ng-model="event.laltitude" aria-describedby="basic-addon1">
+                    </div><br>
+                    <div class="input-group" style="width: 50%;">
+                        <span class="input-group-addon" id="basic-addon1">image</span>
+                        <input type="text" class="form-control" placeholder="image" ng-model="event.image" aria-describedby="basic-addon1">
+                    </div><br>
+                    <div class="input-group" style="width: 50%;">
+                        <span class="input-group-addon" id="basic-addon1">video</span>
+                        <input type="text" class="form-control" placeholder="video Link"  ng-model="event.video" aria-describedby="basic-addon1">
+                    </div><br>
+                    <div class="input-group" style="width: 50%;">
+                        <span class="input-group-addon" id="basic-addon1">event Starting Date</span>
+                        <input type="datetime" class="form-control" ng-model="event.eventStartingDate"  aria-describedby="basic-addon1">
+                    </div><br>
+                    <div class="input-group" style="width: 50%;">
+                        <span class="input-group-addon" id="basic-addon1">event Finishing Date</span>
+                        <input type="datetime" class="form-control" ng-model="event.eventFinishingDate" placeholder="event Finishing Date" aria-describedby="basic-addon1">
+                    </div><br>
+                    <div class="input-group" style="width: 50%;">
+                        <span class="input-group-addon" id="basic-addon1">price</span>
+                        <input type="text" class="form-control" placeholder="price" ng-model="event.price" aria-describedby="basic-addon1">
+                    </div><br>
+                    <div class="input-group" style="width: 50%;">
+                        <span class="input-group-addon" id="basic-addon1">city Adress</span>
+                        <input type="text" class="form-control" placeholder="city Adress" ng-model="event.cityAdress" aria-describedby="basic-addon1">
+                    </div><br>
+                    <div class="input-group" style="width: 50%;">
+                        <span class="input-group-addon" id="basic-addon1">country Adress</span>
+                        <input type="text" class="form-control" placeholder="country Adress" ng-model="event.countryAdress" aria-describedby="basic-addon1">
+                    </div><br>
+                    <div class="input-group" style="width: 50%;">
+                        <span class="input-group-addon" id="basic-addon1">tag :</span>
+                        <input type="text" class="form-control" placeholder="tag " ng-model="event.tag" aria-describedby="basic-addon1">
+                    </div><br>
+                    <div class="input-group" style="width: 50%;">
+                        <span class="input-group-addon" id="basic-addon1">category</span>
+                        <input type="text" class="form-control" placeholder="category" ng-model="event.category" aria-describedby="basic-addon1">
+                    </div><br>
+                    <div class="input-group" style="width: 50%;">
+                        <span class="input-group-addon" id="basic-addon1">event Type :</span>
+                        <input type="text" class="form-control" placeholder="event Type" ng-model="event.eventType" aria-describedby="basic-addon1">
+                    </div><br>
+                    <div class="input-group" style="width: 50%;">
+                        <span class="input-group-addon" id="basic-addon1">facebook Event Link</span>
+                        <input type="text" class="form-control" placeholder="ID Event" ng-model="event.facebookEventLink" aria-describedby="basic-addon1">
+                    </div><br>
+                    <div class="input-group" style="width: 50%;">
+                        <span class="input-group-addon" id="basic-addon1">twitter Event Link :</span>
+                        <input type="text" class="form-control" placeholder="twitter Event Link" ng-model="event.twitterEventLink" aria-describedby="basic-addon1">
+                    </div><br>
+                    <div class="input-group" style="width: 50%;">
+                        <span class="input-group-addon" id="basic-addon1">slogan :</span>
+                        <input type="text" class="form-control" placeholder="slogan" ng-model="event.slogan" aria-describedby="basic-addon1">
+                    </div><br>
+
+                    <button class="btn btn-success btn-lg"  ng-click="add()" onclick="window.location.reload();">Save</button>
+                    <button class="btn btn-warning btn-lg"  ng-click="update()"  onclick="window.location.reload();" >Update</button>
+                    <button class="btn btn-danger btn-lg"  ng-click="delete()"  onclick="window.location.reload();" >Delete</button>
+                </center>
+            </section>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-pure margin-0" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade modal-3d-flip-vertical in" id="{{ 'exampleNiftySuperScaled94'}}"
+     aria-hidden="true" aria-labelledby="exampleModalTitle" role="dialog" tabindex="-1">
+    <div class="modal-dialog" style="width: 90%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title">Event Info</h4>
+            </div>
+
+            <section class="events text-left newsection">
+
+                <div class="input-group" style="width: 50%;">
+                    <span class="input-group-addon" id="basic-addon1">creationDate</span>
+                    <input type="datetime" class="form-control" ng-model="sat.creationDate" placeholder="creationDate" aria-describedby="basic-addon1">
+                </div><br>
+                <div class="input-group" style="width: 50%;">
+                    <span class="input-group-addon" id="basic-addon1">Description</span>
+                    <input type="text" class="form-control" placeholder="Description" ng-model="sat.descreptiveText " aria-describedby="basic-addon1">
+                </div><br>
+                <div class="input-group" style="width: 50%;">
+                    <span class="input-group-addon" id="basic-addon1">Message info</span>
+                    <input type="text" class="form-control" placeholder="Message info" ng-model="sat.messageInfo " aria-describedby="basic-addon1">
+                </div><br>
+                <div class="input-group" style="width: 50%;">
+                    <span class="input-group-addon" id="basic-addon1">Statut</span>
+                    <input type="text" class="form-control" placeholder="Statut" ng-model="sat.status" aria-describedby="basic-addon1">
+                </div><br>
+                <div class="input-group" style="width: 50%;">
+                    <span class="input-group-addon" id="basic-addon1">Id event</span>
+                    <input type="text" class="form-control" placeholder="" ng-model="sat.idEvent"  aria-describedby="basic-addon1" readonly>
+                </div><br>
+
+
+                <button class="btn btn-success btn-lg"  ng-click="addsat()" >Save</button>
+            </section>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-pure margin-0" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer -->
+<footer class="main-footer">
+    <div class="container">
+        <div class="row">
+
+            <div class="widget col-md-3">
+                <div class="about">
+                    <h2 class="title">About <span class="border"></span></h2>
+                    <p>Vivamus ante nulla, ultrices ut molestie pellentesque, posuere eu ligula. In porttitor in turpis
+                        eu porttitor. </p>
+                </div>
+                <ul class="fa-ul">
+                    <li><i class="fa-li fa fa-map-marker"></i>1600 Pennsylvania Ave NW,
+                        Washington, D.C., DC 20500, ABD
+                    </li>
+                    <li><i class="fa-li fa fa-phone fa-flip-horizontal"></i>+90 555 55 55</li>
+                    <li><i class="fa-li fa fa-envelope-o "></i><a href="#">info@example.com</a></li>
+                </ul>
+            </div>
+
+            <div class="widget col-md-3">
+                <h2 class="title">Recent Blog Posts<span class="border"></span></h2>
+                <div class="recent-blog">
+                    <div class="recent-img">
+                        <img src="img/70x70.gif" alt="">
+                    </div>
+                    <div class="recent-content">
+                        <h3 class="title"><a href="#"> Lorem ipsum dolor sit amet consectetur. </a></h3>
+                        <p class="date"><i class="icon fa fa-calendar"></i>October 24th, 2013</p>
+                        <p class="comment"><i class="icon fa fa-comment"></i><a href="#">23 Comments</a></p>
+                    </div>
+                </div>
+
+                <div class="recent-blog">
+                    <div class="recent-img">
+                        <img src="img/70x70.gif" alt="">
+                    </div>
+                    <div class="recent-content">
+                        <h3 class="title"><a href="#"> Lorem ipsum dolor sit amet consectetur. </a></h3>
+                        <p class="date"><i class="icon fa fa-calendar"></i>October 24th, 2013</p>
+                        <p class="comment"><i class="icon fa fa-comment"></i><a href="#">23 Comments</a></p>
+                    </div>
+                </div>
+
+                <div class="recent-blog">
+                    <div class="recent-img">
+                        <img src="img/70x70.gif" alt="">
+                    </div>
+                    <div class="recent-content">
+                        <h3 class="title"><a href="#"> Lorem ipsum dolor sit amet consectetur. </a></h3>
+                        <p class="date"><i class="icon fa fa-calendar"></i>October 24th, 2013</p>
+                        <p class="comment"><i class="icon fa fa-comment"></i><a href="#">23 Comments</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="widget lastest-tweets col-md-3">
+                <h2 class="title">Lastest Tweets<span class="border"></span></h2>
+                <ul class="fa-ul twitters"></ul>
+            </div>
+
+            <div class="widget col-md-3">
+                <h2 class="title">Flickr Photos<span class="border"></span></h2>
+                <div class="flicker flickrwidget"></div>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="js/vendor/jquery-1.10.2.min.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+
+<script type="text/template" id="upcomeing-events-template">
+    <div class="time-count-container">
+        <div class="time days">
+            <span class="count curr top"><%= curr.days %></span>
+            <span class="count next top"><%= next.days %></span>
+            <span class="count curr bottom"><%= curr.days %></span>
+            <span class="count next bottom"><%= next.days %></span>
+            <span class="label">days</span>
+        </div>
+        <span class="arrow">:</span>
+    </div>
+
+    <div class="time-count-container">
+        <div class="time hours">
+            <span class="count curr top"> <%= curr.hours %></span>
+            <span class="count next top"><%= next.hours %></span>
+            <span class="count curr bottom"><%= curr.hours %></span>
+            <span class="count next bottom"><%= next.hours %></span>
+            <span class="label">hours</span>
+        </div>
+        <span class="arrow">:</span>
+    </div>
+    <div class="time-count-container">
+        <div class="time minutes">
+            <span class="count curr top"><%= curr.minutes %></span>
+            <span class="count next top"><%= next.minutes %></span>
+            <span class="count curr bottom"><%= curr.minutes %></span>
+            <span class="count next bottom"><%= next.minutes %></span>
+            <span class="label">min</span>
+        </div>
+        <span class="arrow">:</span>
+    </div>
+    <div class="time-count-container">
+        <div class="time seconds">
+            <span class="count curr top"><%= curr.seconds %></span>
+            <span class="count next top"><%= next.seconds %></span>
+            <span class="count curr bottom"><%= curr.seconds %></span>
+            <span class="count next bottom"><%= next.seconds %></span>
+            <span class="label">sec</span>
+        </div>
+
+    </div>
+</script>
+</body>
+</html>

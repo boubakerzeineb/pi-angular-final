@@ -1,0 +1,370 @@
+/* Content of prettify.css */
+.pln {
+  color: #000000;
+}
+@media screen {
+  .str {
+    color: #008800;
+  }
+  .kwd {
+    color: #000088;
+  }
+  .com {
+    color: #880000;
+  }
+  .typ {
+    color: #660066;
+  }
+  .lit {
+    color: #006666;
+  }
+  .pun,
+  .opn,
+  .clo {
+    color: #666600;
+  }
+  .tag {
+    color: #000088;
+  }
+  .atn {
+    color: #660066;
+  }
+  .atv {
+    color: #008800;
+  }
+  .dec,
+  .var {
+    color: #660066;
+  }
+  .fun {
+    color: #ff0000;
+  }
+}
+@media print, projection {
+  .str {
+    color: #006600;
+  }
+  .kwd {
+    color: #006;
+    font-weight: bold;
+  }
+  .com {
+    color: #600;
+    font-style: italic;
+  }
+  .typ {
+    color: #404;
+    font-weight: bold;
+  }
+  .lit {
+    color: #004444;
+  }
+  .pun,
+  .opn,
+  .clo {
+    color: #444400;
+  }
+  .tag {
+    color: #006;
+    font-weight: bold;
+  }
+  .atn {
+    color: #440044;
+  }
+  .atv {
+    color: #006600;
+  }
+}
+pre.prettyprint {
+  padding: 10px;
+}
+ol.linenums {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+li.L0,
+li.L1,
+li.L2,
+li.L3,
+li.L5,
+li.L6,
+li.L7,
+li.L8 {
+  list-style-type: none;
+}
+li.L1,
+li.L3,
+li.L5,
+li.L7,
+li.L9 {
+  background: #eeeeee;
+}
+#wrapper.container {
+  width: 1350px;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 100%;
+}
+#logo a {
+  display: block;
+  margin: 50px auto 30px auto;
+  width: 180px;
+}
+#logo a img {
+  width: 100%;
+  height: 100%;
+}
+body {
+  overflow-x: hidden;
+  background-color: #fbfbfb;
+  color: #3f3f3f;
+  line-height: 1.8;
+}
+#nav-sidebar {
+  width: 220px;
+  background-color: #f7f5fa;
+  border-right: 2px solid #5AB4E6;
+  border-left: 2px solid #5AB4E6;
+  float: left;
+  height: 800px;
+}
+.btn {
+  border-radius: 0;
+}
+.rows {
+  margin-left: -15px;
+  margin-right: -15px;
+  overflow: hidden;
+}
+/*
+ * Side navigation
+ *
+ * Scrollspy and affixed enhanced navigation to highlight sections and secondary
+ * sections of docs content.
+ */
+/* By default it's not affixed in mobile views, so undo that */
+.pix-sidebar.affix {
+  position: static;
+  top: 0px;
+}
+/* First level of nav */
+.pix-sidenav {
+  width: 220px;
+  margin-bottom: 30px;
+  margin-left: -2px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  text-shadow: 0 1px 0 #fff;
+  border-right: 2px solid #5AB4E6;
+  border-left: 2px solid #5AB4E6;
+  background-color: #f7f5fa;
+  height: 100%;
+}
+/* All levels of nav */
+.pix-sidebar .nav > li > a {
+  display: block;
+  color: #7A6B6B;
+  padding: 5px 20px;
+}
+.pix-sidebar .nav > li > a:hover,
+.pix-sidebar .nav > li > a:focus {
+  text-decoration: none;
+  background-color: #E9E3E3;
+  border-right: 1px solid #E0D8D9;
+}
+.pix-sidebar .nav > .active > a,
+.pix-sidebar .nav > .active:hover > a,
+.pix-sidebar .nav > .active:focus > a {
+  font-weight: bold;
+  background-color: #5AB4E6;
+  color: #fff;
+  text-shadow: none;
+}
+/* Nav: second level (shown on .active) */
+.pix-sidebar .nav .nav {
+  display: none;
+  /* Hide by default, but at >768px, show it */
+
+  margin-bottom: 8px;
+}
+.pix-sidebar .nav .nav > li > a {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 30px;
+  font-size: 90%;
+}
+.pix-sidebar .nav > li.active > a {
+  margin-bottom: 8px;
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.14);
+}
+.pix-sidebar .nav > li.active > a:hover {
+  border: none;
+  cursor: default;
+}
+.pix-sidebar .nav > li.active > a:after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid #fbfbfb;
+  padding: 0;
+  margin: 0;
+  text-align: right;
+  display: block;
+  float: right;
+  margin-top: 2px;
+  box-shadow: none;
+  margin-right: -26px;
+}
+.pix-sidebar .nav > li.active li.active > a:after {
+  border: none;
+}
+.pix-sidebar .nav > li.active li.active > a {
+  color: #5AB4E6;
+  background-color: #E9E3E3;
+  box-shadow: none;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  margin-bottom: 0;
+  padding-left: 30px;
+}
+/* Show and affix the side nav when space allows it */
+.pix-sidebar .nav > .active > ul {
+  display: block;
+}
+/* Widen the fixed sidebar */
+.pix-sidebar.affix {
+  position: fixed;
+  /* Undo the static from mobile first approach */
+
+  top: 0px;
+}
+.pix-sidebar.affix-bottom {
+  position: apixolute;
+  /* Undo the static from mobile first approach */
+
+}
+.pix-sidebar.affix-bottom .pix-sidenav,
+.pix-sidebar.affix .pix-sidenav {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+/* Widen the fixed sidebar again */
+.pix-sidebar.affix-bottom,
+.pix-sidebar.affix {
+  width: 263px;
+}
+.nav.pix-sidenav.affix {
+  top: 0px;
+}
+#content {
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-left: 260px;
+  padding-right: 50px;
+  font-size: 90%;
+  font-weight: 400;
+}
+#content h1,
+#content h2 {
+  font-weight: 700;
+}
+#content h3,
+#content h4,
+#content h5,
+#content h6 {
+  font-weight: 600;
+}
+#content a.link,
+#content a.link:hover {
+  color: #5AB4E6;
+}
+/* Intro */
+#intro {
+  padding: 50px;
+  background: #f7f5fa;
+  margin-top: 30px;
+  border-radius: 3px;
+}
+#intro {
+  margin-bottom: 30px;
+}
+#intro h1 {
+  margin-top: 0;
+}
+#intro p.last {
+  margin-bottom: 0;
+}
+#table-of-content a {
+  padding: 20px;
+  background: #f7f5fa;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+}
+#table-of-content a:hover {
+  background: #f1f1f1;
+  -webkit-transform: scale(1.03);
+  -moz-transform: scale(1.03);
+  -ms-transform: scale(1.03);
+  -o-transform: scale(1.03);
+  transform: scale(1.03);
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+}
+#table-of-content a,
+#table-of-content a:hover {
+  display: block;
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+#table-of-content a h3,
+#table-of-content a:hover h3 {
+  font-size: 18px;
+  text-decoration: none;
+  color: #3f3f3f;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin-top: 0;
+  line-height: 1.5;
+}
+#table-of-content a p,
+#table-of-content a:hover p {
+  color: #5AB4E6;
+  margin-bottom: 0;
+}
+#content div.section {
+  margin-bottom: 35px;
+}
+#end {
+  padding-bottom: 50px;
+}
+.clear {
+  clear: both;
+}
+#content #table-of-content .head a h3 {
+  border: none;
+  margin: 0;
+}
+.highlight {
+  background: #fff9CC;
+  color: #111;
+  padding: 3px;
+}
+.colorCss{
+  color: white;
+  display: block;
+  float: left;
+  width: 115px;
+  text-align: center;
+  padding: 10px 5px;
+  height: 89px;
+}
+.color-demo{
+  overflow: hidden;
+  padding-top: 20px;
+}
